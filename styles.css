@@ -625,3 +625,9 @@ body {
 .nav-menu a:hover {
     opacity: 0.6; /* Apple-style hover effect */
 }
+
+.feature-list li {
+    font-size: 14px;
+    color: var(--sub);
+    margin-bottom: 8px;
+}
