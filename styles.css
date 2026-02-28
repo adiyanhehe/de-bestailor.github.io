@@ -455,3 +455,57 @@ body {
         height: 300px;
     }
 }
+
+/* Gallery Filters */
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid #e5e5e7;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--text);
+    color: white;
+    border-color: var(--text);
+}
+
+/* Contact Specifics */
+.contact-info-large h3 { font-size: 28px; margin-bottom: 10px; }
+.info-card { margin-bottom: 40px; }
+.text-link { color: var(--accent); text-decoration: none; font-weight: 500; }
+
+.whatsapp {
+    background: #25D366 !important;
+    color: white !important;
+}
+.whatsapp h4, .whatsapp p { color: white !important; }
+
+.quick-actions {
+    display: grid;
+    gap: 15px;
+}
+
+.full-map {
+    margin-top: 80px;
+    line-height: 0;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    color: var(--sub);
+}
