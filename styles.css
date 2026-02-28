@@ -548,3 +548,52 @@ body {
 .price-card:hover {
     transform: translateY(-5px);
 }
+
+/* Page Header for sub-pages */
+.page-header {
+    padding: 140px 0 60px;
+    background: var(--card);
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 56px;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+}
+
+/* Gallery Section Anchors */
+.category-title {
+    font-size: 32px;
+    margin: 80px 0 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.gallery-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-nav a {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Service Detail Rows */
+.service-detail-row {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.service-detail-row.reverse { flex-direction: row-reverse; }
+
+.service-text { flex: 1; }
+.service-img { flex: 1; border-radius: 24px; overflow: hidden; height: 500px; }
+.service-img img { width: 100%; height: 100%; object-fit: cover; }
