@@ -884,3 +884,74 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+/* Hide the mobile menu by default */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1000;
+    display: none; /* This is the fix for the spilling links */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Only show it when active */
+.mobile-overlay.active {
+    display: flex;
+}
+
+/* Make navigation links look professional */
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 15px 0;
+    display: block;
+}
+
+/* Elite Measurement Grid */
+.measurement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.measure-card {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #eee;
+    position: relative;
+}
+
+/* This adds the large faded numbers behind the text */
+.step-num {
+    font-family: serif;
+    font-size: 80px;
+    color: #f0f0f0;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    z-index: 0;
+}
+
+.measure-card h3, .measure-card p {
+    position: relative;
+    z-index: 1;
+}
+
+.measure-card h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
