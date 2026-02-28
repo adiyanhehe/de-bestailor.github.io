@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery — De - Best Tailor</title>
+    <title>Gallery | De - Best Tailor</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,32 +12,48 @@
 
     <header class="page-header">
         <div class="container">
-            <span class="eyebrow">Portfolio</span>
             <h1>The Collection</h1>
-            <p>A showcase of bespoke excellence crafted for our clients worldwide.</p>
+            <div class="gallery-nav">
+                <a href="#suits">Suits</a>
+                <a href="#shirts">Shirts</a>
+                <a href="#women">Women's Couture</a>
+            </div>
         </div>
     </header>
 
-    <section class="gallery-section container">
-        <div class="gallery-filters">
-            <button class="filter-btn active">All</button>
-            <button class="filter-btn">Men</button>
-            <button class="filter-btn">Women</button>
-            <button class="filter-btn">Formal</button>
-        </div>
+    <main class="container">
+        <section id="suits">
+            <h2 class="category-title">Bespoke Suits</h2>
+            <div class="portfolio-grid">
+                <div class="port-item tall"><img src="photos/suits-1.jpg" alt="Blue Suit"></div>
+                <div class="port-item"><img src="photos/suits-2.jpg" alt="Tuxedo"></div>
+                <div class="port-item"><img src="photos/suits-3.jpg" alt="Grey Suit"></div>
+                <div class="port-item wide"><img src="photos/suits-wide.jpg" alt="Suit Detail"></div>
+            </div>
+        </section>
 
-        <div class="portfolio-grid">
-            <div class="port-item tall"><img src="photos/g1.jpg" alt="Suit Detail"></div>
-            <div class="port-item"><img src="photos/g2.jpg" alt="Wedding Dress"></div>
-            <div class="port-item"><img src="photos/g3.jpg" alt="Shirt Cuffs"></div>
-            <div class="port-item wide"><img src="photos/g4.jpg" alt="Collection View"></div>
-            <div class="port-item"><img src="photos/g5.jpg" alt="Lining Detail"></div>
-            <div class="port-item tall"><img src="photos/g6.jpg" alt="Evening Gown"></div>
-        </div>
-    </section>
+        <section id="shirts">
+            <h2 class="category-title">Custom Shirts</h2>
+            <div class="portfolio-grid">
+                <div class="port-item"><img src="photos/shirt-1.jpg" alt="White Shirt"></div>
+                <div class="port-item wide"><img src="photos/shirt-wide.jpg" alt="Shirt Fabric"></div>
+                <div class="port-item"><img src="photos/shirt-2.jpg" alt="Cuff Detail"></div>
+            </div>
+        </section>
+
+        <section id="women">
+            <h2 class="category-title">Women's Couture</h2>
+            <div class="portfolio-grid">
+                <div class="port-item tall"><img src="photos/women-1.jpg" alt="Gown"></div>
+                <div class="port-item"><img src="photos/women-2.jpg" alt="Blazer"></div>
+                <div class="port-item"><img src="photos/women-3.jpg" alt="Dress"></div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
         <p>© 2026 De - Best Tailor Pattaya.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
