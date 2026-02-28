@@ -7,31 +7,91 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="nav"> </nav>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">De — Best Tailor</a>
+            
+            <ul class="nav-menu desktop-only">
+                <li><a href="mens.html">Men</a></li>
+                <li><a href="womens.html">Women</a></li>
+                <li><a href="process.html">The Process</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="https://wa.me/66863342391" class="contact-btn">Book Fitting</a>
+                <button class="mobile-menu-btn" id="menuBtn">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <ul class="mobile-nav-links">
+            <li><a href="mens.html">Men's Bespoke</a></li>
+            <li><a href="womens.html">Women's Couture</a></li>
+            <li><a href="process.html">The Process</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 
     <header class="page-header">
         <div class="container">
+            <span class="eyebrow">Couture</span>
             <h1>Women's Couture</h1>
-            <p>Elegance designed specifically for you.</p>
+            <p>Exceptional elegance, custom-tailored to your unique silhouette.</p>
         </div>
     </header>
 
     <main class="container">
-        <div class="service-detail-row">
+        <section class="service-detail-row">
             <div class="service-text">
                 <h2>Evening Gowns</h2>
-                <p>Red-carpet ready garments made from premium Thai silk, chiffon, and lace.</p>
+                <p>From gala dinners to red-carpet events, our gowns are handcrafted using the finest Thai silk, Italian chiffon, and delicate French lace. Every stitch is placed to ensure you feel as radiant as you look.</p>
+                <ul class="feature-list" style="margin-top: 20px; list-style: none; padding: 0;">
+                    <li>✓ Custom draping & boning</li>
+                    <li>✓ Hand-applied beadwork</li>
+                    <li>✓ Luxury silk linings</li>
+                </ul>
             </div>
-            <div class="service-img"><img src="photos/dress.jpg"></div>
-        </div>
+            <div class="service-img">
+                <img src="photos/dress.jpg" alt="Bespoke Evening Gown">
+            </div>
+        </section>
 
-        <div class="service-detail-row reverse">
+        <section class="service-detail-row reverse">
             <div class="service-text">
-                <h2>Ladies' Suits</h2>
-                <p>Power suits that define modern professionalism. Perfectly fitted blazers and trousers.</p>
+                <h2>Ladies' Suits & Blazers</h2>
+                <p>Define your professional style with power suits that offer both comfort and command. Our tailoring focuses on a sharp, feminine silhouette that standard off-the-rack brands simply cannot match.</p>
+                <div class="cta-block" style="margin-top: 30px;">
+                    <a href="contact.html" class="contact-btn" style="display:inline-block; padding: 12px 30px;">Request a Quote</a>
+                </div>
             </div>
-            <div class="service-img"><img src="photos/ladies-suit.jpg"></div>
-        </div>
+            <div class="service-img">
+                <img src="photos/ladies-suit.jpg" alt="Custom Tailored Women's Suit">
+            </div>
+        </section>
+
+        <section class="service-detail-row">
+            <div class="service-text">
+                <h2>Daywear & Cocktail Dresses</h2>
+                <p>Elegant cocktail dresses and perfectly fitted skirts for the modern woman. Whether for a business lunch or a social garden party, we create timeless pieces for your wardrobe.</p>
+            </div>
+            <div class="service-img">
+                <img src="photos/women-3.jpg" alt="Cocktail Dress Detail">
+            </div>
+        </section>
     </main>
+
+    <footer class="footer">
+        <p>© 2026 De - Best Tailor Pattaya. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
