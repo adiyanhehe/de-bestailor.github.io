@@ -753,3 +753,73 @@ body {
 
 .tip-card h3 { margin-bottom: 15px; }
 .tip-card ul { padding-left: 20px; color: #555; line-height: 1.8; }
+
+/* Hide the mobile menu links by default */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1000;
+    display: none; /* This stops them from showing on the side */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Only show it when we click the button */
+.mobile-overlay.active {
+    display: flex;
+}
+
+/* Make the links look professional, not blue */
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.mobile-nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-size: 24px;
+    font-weight: 500;
+    display: block;
+    margin: 15px 0;
+}
+
+.size-section {
+    margin-bottom: 50px;
+}
+
+.size-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+}
+
+.size-table th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #111;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.size-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    color: #444;
+}
+
+/* Make the 'Area' column bold */
+.size-table td:first-child {
+    font-weight: 600;
+    color: #111;
+    width: 30%;
+}
