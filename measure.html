@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Measurements | De - Best Tailor</title>
+    <style>
+        :root {
+            --dark: #111111;
+            --light: #ffffff;
+            --grey: #f7f7f7;
+            --accent: #007bff;
+            --border: #e0e0e0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--dark); background: #fff; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* NAV */
+        .nav { height: 80px; display: flex; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: white; z-index: 1000; }
+        .nav-container { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--dark); }
+        .contact-btn { background: var(--accent); color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+
+        /* HEADER */
+        .page-header { padding: 80px 0 40px; text-align: center; }
+        h1 { font-size: 2.5rem; font-weight: 300; margin-bottom: 15px; }
+        .subtitle { color: #666; max-width: 600px; margin: 0 auto; }
+
+        /* FORM STYLING */
+        .measurement-form { background: var(--grey); padding: 40px; border-radius: 8px; margin: 40px 0; }
+        .form-section { margin-bottom: 40px; }
+        .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #888; border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 25px; }
+
+        .input-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        label { font-size: 0.9rem; font-weight: 600; }
+        input, select { padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; }
+        input:focus { outline: none; border-color: var(--accent); }
+
+        .unit-toggle { display: flex; gap: 10px; margin-bottom: 20px; }
+        .unit-label { font-size: 0.8rem; background: #eee; padding: 5px 15px; border-radius: 20px; cursor: pointer; }
+        input[type="radio"]:checked + .unit-label { background: var(--dark); color: white; }
+        input[type="radio"] { display: none; }
+
+        .submit-full { width: 100%; background: var(--dark); color: white; padding: 18px; border: none; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+        .submit-full:hover { opacity: 0.9; }
+
+        @media (max-width: 600px) { .input-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">De — Best Tailor</a>
+            <a href="https://wa.me/66863342391" class="contact-btn">WhatsApp Help</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Submit Your Measurements</h1>
+            <p class="subtitle">Enter your details below. For best results, have a professional or a friend assist you using our <a href="sizes.html" style="color:var(--accent)">Guide</a>.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <form class="measurement-form" action="https://formspree.io/f/your-email-id" method="POST">
+            
+            <div class="form-section">
+                <h3 class="section-title">Client Details</h3>
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="section-title">Measurement Units</h3>
+                <div class="unit-toggle">
+                    <label>
+                        <input type="radio" name="units" value="cm" checked>
+                        <span class="unit-label">Centimeters (cm)</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="units" value="inch">
+                        <span class="unit-label">Inches (in)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="section-title">Upper Body</h3>
+                <div class="input-grid">
+                    <div class="form-group"><label>Neck</label><input type="number" step="0.1" name="neck"></div>
+                    <div class="form-group"><label>Chest</label><input type="number" step="0.1" name="chest"></div>
+                    <div class="form-group"><label>Shoulder Width</label><input type="number" step="0.1" name="shoulder"></div>
+                    <div class="form-group"><label>Sleeve Length</label><input type="number" step="0.1" name="sleeve"></div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="section-title">Lower Body</h3>
+                <div class="input-grid">
+                    <div class="form-group"><label>Waist</label><input type="number" step="0.1" name="waist"></div>
+                    <div class="form-group"><label>Hips</label><input type="number" step="0.1" name="hips"></div>
+                    <div class="form-group"><label>Inseam</label><input type="number" step="0.1" name="inseam"></div>
+                    <div class="form-group"><label>Total Height</label><input type="number" step="0.1" name="height"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-full">Submit Measurements to Atelier</button>
+        </form>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; font-size: 0.8rem; color: #aaa;">
+        © 2026 De - Best Tailor Pattaya
+    </footer>
+
+</body>
+</html>
