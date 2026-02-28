@@ -4,14 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sizing & Measurement | De - Best Tailor</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- CORE LUXURY STYLES --- */
+        :root {
+            --dark: #111111;
+            --light: #ffffff;
+            --grey: #f7f7f7;
+            --sub: #666666;
+            --accent: #007bff; /* Professional Blue */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--dark); line-height: 1.6; background: #fff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- NAVIGATION (Fixed Spill) --- */
+        .nav { height: 80px; display: flex; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; background: white; z-index: 1000; }
+        .nav-container { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: var(--dark); letter-spacing: 1px; }
+        
+        .nav-menu { display: flex; list-style: none; gap: 30px; }
+        .nav-menu a { text-decoration: none; color: var(--dark); font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        .nav-menu a:hover { color: var(--sub); }
+
+        .contact-btn { background: var(--accent); color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+
+        /* --- MOBILE MENU (Hidden properly) --- */
+        .mobile-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white; z-index: 2000;
+            display: none; /* THIS STOPS THE SPILL */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .mobile-overlay.active { display: flex; }
+        .mobile-nav-links { list-style: none; text-align: center; }
+        .mobile-nav-links a { display: block; font-size: 2rem; text-decoration: none; color: var(--dark); margin: 15px 0; font-weight: 700; }
+        
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .mobile-menu-btn span { width: 25px; height: 2px; background: var(--dark); }
+
+        /* --- PAGE HEADER --- */
+        .page-header { padding: 100px 0 60px; text-align: center; background: var(--grey); }
+        .eyebrow { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; color: var(--sub); display: block; margin-bottom: 10px; }
+        h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 300; }
+
+        /* --- ELITE MEASUREMENT CARDS --- */
+        .measurement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 80px 0;
+        }
+
+        .measure-card {
+            position: relative;
+            background: white;
+            padding: 50px 40px;
+            border: 1px solid #eee;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .measure-card:hover { border-color: var(--dark); }
+
+        .step-num {
+            position: absolute;
+            top: -10px;
+            right: 0px;
+            font-size: 120px;
+            font-weight: 900;
+            color: #f2f2f2; /* Subtle background number */
+            z-index: 1;
+            line-height: 1;
+            user-select: none;
+        }
+
+        .measure-content { position: relative; z-index: 2; }
+        .measure-content h3 { text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; font-size: 1.1rem; }
+        .measure-content p { color: var(--sub); font-size: 0.95rem; }
+
+        /* --- DOWNLOAD SECTION --- */
+        .download-section { text-align: center; padding: 100px 20px; border-top: 1px solid #eee; background: #fafafa; }
+        .download-section h2 { margin-bottom: 20px; font-size: 2rem; }
+        .download-section p { margin-bottom: 40px; color: var(--sub); }
+
+        .footer { text-align: center; padding: 40px; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .desktop-only { display: none; }
+            .mobile-menu-btn { display: flex; }
+            h1 { font-size: 2.2rem; }
+            .measurement-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
     <nav class="nav">
-        <div class="nav-container">
+        <div class="container nav-container">
             <a href="index.html" class="logo">De — Best Tailor</a>
-            
             <ul class="nav-menu desktop-only">
                 <li><a href="mens.html">Men</a></li>
                 <li><a href="womens.html">Women</a></li>
@@ -20,12 +115,10 @@
                 <li><a href="sizes.html">Sizes</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-
             <div class="nav-right">
                 <a href="https://wa.me/66863342391" class="contact-btn">Book Fitting</a>
-                <button class="mobile-menu-btn" id="menuBtn">
-                    <span></span>
-                    <span></span>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <span></span><span></span>
                 </button>
             </div>
         </div>
@@ -33,89 +126,87 @@
 
     <div class="mobile-overlay" id="mobileOverlay">
         <ul class="mobile-nav-links">
-            <li><a href="mens.html">Men's Bespoke</a></li>
-            <li><a href="womens.html">Women's Couture</a></li>
+            <li><a href="mens.html">Men</a></li>
+            <li><a href="womens.html">Women</a></li>
             <li><a href="process.html">The Process</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="sizes.html">Sizes</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="#" onclick="toggleMenu()" style="font-size: 1rem; color: red;">Close Menu</a></li>
         </ul>
     </div>
 
     <header class="page-header">
         <div class="container">
-            <span class="eyebrow">The Master Fit</span>
+            <span class="eyebrow">The Bespoke Standard</span>
             <h1>Measurement Guide</h1>
-            <p>Precise measurements are the foundation of bespoke tailoring. Follow our professional guide below for a flawless silhouette.</p>
+            <p>Precise data is the foundation of a masterpiece. Follow our professional guide.</p>
         </div>
     </header>
 
     <main class="container">
-        
         <div class="measurement-grid">
             <div class="measure-card">
                 <span class="step-num">01</span>
                 <div class="measure-content">
-                    <h3>The Neck</h3>
-                    <p>Measure around the base of the neck where the collar sits. Add 1cm for a comfortable "two-finger" fit.</p>
+                    <h3>Neck</h3>
+                    <p>Measure around the base of the neck where the collar sits. Add 1cm for a comfortable fit.</p>
                 </div>
             </div>
-
             <div class="measure-card">
                 <span class="step-num">02</span>
                 <div class="measure-content">
-                    <h3>The Chest</h3>
-                    <p>Wrap the tape under your armpits around the fullest part of your chest. Keep the tape level and breathe normally.</p>
+                    <h3>Chest</h3>
+                    <p>Wrap the tape under your armpits around the fullest part of your chest. Keep the tape level.</p>
                 </div>
             </div>
-
             <div class="measure-card">
                 <span class="step-num">03</span>
                 <div class="measure-content">
                     <h3>Shoulder Width</h3>
-                    <p>Measure from the edge of the left shoulder bone, across the back to the edge of the right shoulder bone.</p>
+                    <p>Measure from the edge of the left shoulder bone across the back to the right shoulder bone.</p>
                 </div>
             </div>
-
             <div class="measure-card">
                 <span class="step-num">04</span>
                 <div class="measure-content">
                     <h3>Sleeve Length</h3>
-                    <p>From the shoulder bone down to your wrist bone. Keep your arm relaxed at your side.</p>
+                    <p>From the shoulder bone down to your wrist bone with your arm relaxed.</p>
                 </div>
             </div>
-
             <div class="measure-card">
                 <span class="step-num">05</span>
                 <div class="measure-content">
                     <h3>The Waist</h3>
-                    <p>Measure around your natural waistline (at the navel). Do not suck in your stomach.</p>
+                    <p>Measure around your natural waistline (at the navel). Stand naturally.</p>
                 </div>
             </div>
-
             <div class="measure-card">
                 <span class="step-num">06</span>
                 <div class="measure-content">
                     <h3>Jacket Length</h3>
-                    <p>From the base of the neck down to your desired length (usually center of the palm).</p>
+                    <p>From the base of the neck down to your desired length (usually center of palm).</p>
                 </div>
             </div>
         </div>
 
         <section class="download-section">
-            <div class="download-content">
-                <h2>Need a printable version?</h2>
-                <p>Download our professional measurement form to fill out and bring to your fitting.</p>
-                <a href="measurement-guide.pdf" download class="contact-btn">Download PDF Chart</a>
+            <div class="container">
+                <h2>Printable Chart</h2>
+                <p>Prefer to write it down? Download our professional measurement form.</p>
+                <a href="#" class="contact-btn" style="padding: 15px 40px;">Download PDF Chart</a>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
         <p>© 2026 De - Best Tailor Pattaya. Crafted in Thailand.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
